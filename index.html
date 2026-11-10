@@ -7,7 +7,7 @@
     Cách chỉnh nhanh nhất: tìm chữ [THAY Ở ĐÂY] trong file này.
     1. Số điện thoại / Zalo: sửa ở phần <script> cuối file (CONFIG)
     2. Địa chỉ công ty: sửa ở <footer>
-    3. Màu sắc: Navy #232A4D như logo LAL (primary), Navy đậm #12162E (secondary), Vàng gold #F59E0B (accent) — sửa ở tailwind.config
+    3. Màu sắc: sửa ở tailwind.config bên dưới
   ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -26,17 +26,15 @@
       theme: {
         extend: {
           colors: {
-            primary: '#232A4D',
-            secondary: '#12162E',
+            primary: '#2563EB',
+            secondary: '#1E293B',
             accent: '#F59E0B',
-            navyLight: '#EEF0F7',
-            navySoft: '#E6E8F0',
           },
           fontFamily: {
             sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
           },
           boxShadow: {
-            'card': '0 10px 30px -12px rgba(35, 42, 77, 0.25)',
+            'card': '0 10px 30px -12px rgba(37, 99, 235, 0.25)',
             'cta': '0 12px 30px -8px rgba(245, 158, 11, 0.55)',
             'float': '0 20px 40px -15px rgba(15, 23, 42, 0.25)',
           }
@@ -55,8 +53,8 @@
     /* Họa tiết lưới mờ cho Hero */
     .bg-grid {
       background-image:
-        linear-gradient(to right, rgba(35,42,77,0.07) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(35,42,77,0.07) 1px, transparent 1px);
+        linear-gradient(to right, rgba(37,99,235,0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(37,99,235,0.07) 1px, transparent 1px);
       background-size: 28px 28px;
     }
     .bg-dots {
@@ -81,17 +79,8 @@
     @keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     .float-y { animation: float-y 3.5s ease-in-out infinite; }
     /* Input focus */
-    .field:focus { outline: none; border-color: #232A4D; box-shadow: 0 0 0 4px rgba(35,42,77,.18); }
+    .field:focus { outline: none; border-color: #2563EB; box-shadow: 0 0 0 4px rgba(37,99,235,.14); }
     .field-error { border-color: #EF4444 !important; box-shadow: 0 0 0 4px rgba(239,68,68,.12) !important; }
-    /* FAQ accordion */
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-item.open .faq-content { display: block; }
-    .faq-icon { transition: transform .25s ease; }
-    .faq-content { display: none; }
-    /* Bảng so sánh cuộn ngang trên mobile */
-    .table-wrap { -webkit-overflow-scrolling: touch; }
-    .table-wrap::-webkit-scrollbar { height: 6px; }
-    .table-wrap::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
     /* Ẩn scrollbar cho menu ngang nếu có */
     .no-scrollbar::-webkit-scrollbar { display: none; }
   </style>
@@ -127,17 +116,15 @@
       <nav class="hidden lg:flex items-center gap-7 text-[15px] font-medium text-slate-600">
         <a href="#giai-doan" class="hover:text-primary transition">Giai đoạn</a>
         <a href="#vi-sao" class="hover:text-primary transition">Vì sao LAL?</a>
-        <a href="#chi-tiet-goi" class="hover:text-primary transition">Chi tiết gói</a>
-        <a href="#so-sanh" class="hover:text-primary transition">So sánh</a>
-        <a href="#faq" class="hover:text-primary transition">Hỏi đáp</a>
+        <a href="#quy-trinh" class="hover:text-primary transition">Lộ trình 7 ngày</a>
         <a href="#dang-ky" class="hover:text-primary transition">Đăng ký</a>
       </nav>
 
       <!-- CTA Desktop + Hamburger Mobile -->
       <div class="flex items-center gap-2.5">
-        <a href="tel:0977431143" class="hidden md:flex items-center gap-2 text-[15px] font-semibold text-secondary hover:text-primary transition mr-1">
-          <span class="w-9 h-9 rounded-full bg-[#EEF0F7] text-primary grid place-items-center"><i class="fa-solid fa-phone"></i></span>
-          0977.43.11.43
+        <a href="tel:0900000000" class="hidden md:flex items-center gap-2 text-[15px] font-semibold text-secondary hover:text-primary transition mr-1">
+          <span class="w-9 h-9 rounded-full bg-blue-50 text-primary grid place-items-center"><i class="fa-solid fa-phone"></i></span>
+          0900 000 000
         </a>
         <a href="#dang-ky" class="hidden sm:inline-flex items-center gap-2 bg-accent hover:bg-amber-500 text-white font-bold text-[14px] sm:text-[15px] px-4 sm:px-5 py-2.5 sm:py-3 rounded-full shadow-cta transition active:scale-[0.98]">
           Nhận Lộ Trình 1-1 <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -154,15 +141,11 @@
       <nav class="flex flex-col text-[16px] font-medium">
         <a href="#giai-doan" class="mobile-link py-3.5 border-b border-slate-100 flex justify-between items-center">Bạn đang ở giai đoạn nào? <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></a>
         <a href="#vi-sao" class="mobile-link py-3.5 border-b border-slate-100 flex justify-between items-center">Vì sao chọn LAL.VN? <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></a>
-        <a href="#chi-tiet-goi" class="mobile-link py-3.5 border-b border-slate-100 flex justify-between items-center">Chi tiết từng gói <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></a>
-        <a href="#so-sanh" class="mobile-link py-3.5 border-b border-slate-100 flex justify-between items-center">So sánh LAL vs tự làm <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></a>
-        <a href="#khach-hang" class="mobile-link py-3.5 border-b border-slate-100 flex justify-between items-center">Khách hàng nói gì <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></a>
-        <a href="#faq" class="mobile-link py-3.5 border-b border-slate-100 flex justify-between items-center">Hỏi đáp thường gặp <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></a>
         <a href="#quy-trinh" class="mobile-link py-3.5 border-b border-slate-100 flex justify-between items-center">Lộ trình 7 ngày <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></a>
         <a href="#dang-ky" class="mobile-link py-3.5 flex justify-between items-center">Đăng ký tư vấn miễn phí <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></a>
       </nav>
       <a href="#dang-ky" class="mobile-link mt-3 flex items-center justify-center gap-2 bg-accent text-white font-bold py-3.5 rounded-xl text-[16px] shadow-cta">Nhận Lộ Trình 1-1 <i class="fa-solid fa-arrow-right text-sm"></i></a>
-      <a href="tel:0977431143" class="mt-2.5 flex items-center justify-center gap-2 border border-slate-200 font-semibold py-3.5 rounded-xl text-[16px]"><i class="fa-solid fa-phone text-primary"></i> Gọi ngay: 0977.43.11.43</a>
+      <a href="tel:0900000000" class="mt-2.5 flex items-center justify-center gap-2 border border-slate-200 font-semibold py-3.5 rounded-xl text-[16px]"><i class="fa-solid fa-phone text-primary"></i> Gọi ngay: 0900 000 000</a>
       <p class="text-center text-xs text-slate-400 mt-3">Miễn phí • Gọi lại trong 15 phút • Không spam</p>
     </div>
   </header>
@@ -171,15 +154,15 @@
     <!-- ============================================================
       2. HERO - Mặt tiền (quan trọng nhất cho Ads)
     ============================================================ -->
-    <section class="relative bg-gradient-to-b from-[#F1F2F7] via-white to-white overflow-hidden">
+    <section class="relative bg-gradient-to-b from-blue-50 via-white to-white overflow-hidden">
       <div class="absolute inset-0 bg-grid"></div>
-      <div class="absolute -top-24 -right-24 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-blue-200/40 rounded-full blur-3xl"></div>
       <div class="absolute top-40 -left-20 w-64 h-64 bg-amber-200/40 rounded-full blur-3xl"></div>
 
       <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 lg:pt-16 pb-10 lg:pb-16 grid lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center">
         <!-- Cột trái: Copy -->
         <div class="text-center lg:text-left">
-          <span class="inline-flex items-center gap-2 bg-white border border-[#E6E8F0] shadow-sm text-primary text-[12px] sm:text-[13px] font-semibold px-3.5 py-1.5 rounded-full">
+          <span class="inline-flex items-center gap-2 bg-white border border-blue-100 shadow-sm text-primary text-[12px] sm:text-[13px] font-semibold px-3.5 py-1.5 rounded-full">
             <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span></span>
             Đang nhận tư vấn hôm nay • Còn trống
           </span>
@@ -206,7 +189,7 @@
             <a href="#dang-ky" class="btn-pulse inline-flex items-center justify-center gap-2 bg-accent hover:bg-amber-500 text-white font-bold text-[17px] sm:text-lg px-7 py-4 rounded-full transition active:scale-[0.98] min-h-[56px]">
               Đăng ký Tư vấn Miễn phí <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="https://zalo.me/0977431143" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-primary/40 font-semibold text-[16px] px-6 py-4 rounded-full transition min-h-[56px]">
+            <a href="https://zalo.me/0900000000" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-primary/40 font-semibold text-[16px] px-6 py-4 rounded-full transition min-h-[56px]">
               <span class="w-7 h-7 rounded-full bg-[#0068FF] text-white grid place-items-center text-[13px] font-black">Z</span>
               Chat Zalo ngay
             </a>
@@ -215,7 +198,7 @@
           <!-- Social Proof -->
           <div class="mt-6 flex items-center justify-center lg:justify-start gap-3">
             <div class="flex -space-x-2.5">
-              <span class="w-9 h-9 rounded-full ring-2 ring-white bg-primary text-white grid place-items-center text-[12px] font-bold">AN</span>
+              <span class="w-9 h-9 rounded-full ring-2 ring-white bg-blue-600 text-white grid place-items-center text-[12px] font-bold">AN</span>
               <span class="w-9 h-9 rounded-full ring-2 ring-white bg-amber-500 text-white grid place-items-center text-[12px] font-bold">MT</span>
               <span class="w-9 h-9 rounded-full ring-2 ring-white bg-emerald-500 text-white grid place-items-center text-[12px] font-bold">PQ</span>
               <span class="w-9 h-9 rounded-full ring-2 ring-white bg-slate-900 text-white grid place-items-center text-[11px] font-bold">50+</span>
@@ -243,7 +226,7 @@
           </div>
           <!-- Badge nổi -->
           <div class="float-y absolute -top-3 -left-2 sm:-left-4 bg-white rounded-2xl shadow-float px-3.5 py-2.5 flex items-center gap-2.5 border border-slate-100">
-            <span class="w-9 h-9 rounded-xl bg-primary text-white grid place-items-center"><i class="fa-solid fa-file-signature"></i></span>
+            <span class="w-9 h-9 rounded-xl bg-blue-600 text-white grid place-items-center"><i class="fa-solid fa-file-signature"></i></span>
             <div class="leading-tight"><p class="font-bold text-[13px]">Đã có GPKD + Website</p><p class="text-[11px] text-slate-500">Chỉ sau 7 ngày triển khai</p></div>
           </div>
           <div class="float-y absolute -bottom-3 -right-2 sm:-right-3 bg-secondary text-white rounded-2xl shadow-float px-3.5 py-2.5" style="animation-delay:.8s">
@@ -258,9 +241,8 @@
         <div class="grid grid-cols-3 divide-x divide-slate-100 bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden text-center">
           <div class="py-4 px-2"><p class="text-[20px] sm:text-2xl font-black text-primary">7 ngày</p><p class="text-[11px] sm:text-[13px] text-slate-500 mt-0.5">Từ ý tưởng → vận hành</p></div>
           <div class="py-4 px-2"><p class="text-[20px] sm:text-2xl font-black text-primary">15 phút</p><p class="text-[11px] sm:text-[13px] text-slate-500 mt-0.5">Chuyên gia gọi lại</p></div>
-          <div class="py-4 px-2"><p class="text-[20px] sm:text-2xl font-black text-primary">100%</p><p class="text-[11px] sm:text-[13px] text-slate-500 mt-0.5">Hợp pháp, chuẩn kế toán</p></div></div>
-        <!-- Thông tin pháp lý - tăng tin cậy cho Ads -->
-        <p class="text-center text-[12.5px] sm:text-[13px] text-slate-500 mt-4">CÔNG TY TNHH LAL SOLUTION • MST: <strong class="text-slate-700">0402190230</strong> • 315 Lê Văn Hiến, P. Hoà Hải, TP. Đà Nẵng • Hotline: <a href="tel:0977431143" class="font-bold text-primary">0977.43.11.43</a></p>
+          <div class="py-4 px-2"><p class="text-[20px] sm:text-2xl font-black text-primary">100%</p><p class="text-[11px] sm:text-[13px] text-slate-500 mt-0.5">Hợp pháp, chuẩn kế toán</p></div>
+        </div>
       </div>
     </section>
 
@@ -269,7 +251,7 @@
     ============================================================ -->
     <section id="giai-doan" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 scroll-mt-24">
       <div class="text-center max-w-2xl mx-auto">
-        <span class="inline-block bg-[#EEF0F7] text-primary font-bold text-[12px] tracking-widest uppercase px-3 py-1.5 rounded-full">Chọn đúng giai đoạn — Tiết kiệm 50% thời gian</span>
+        <span class="inline-block bg-blue-50 text-primary font-bold text-[12px] tracking-widest uppercase px-3 py-1.5 rounded-full">Chọn đúng giai đoạn — Tiết kiệm 50% thời gian</span>
         <h2 class="mt-4 text-[28px] sm:text-[36px] font-black tracking-tight">Bạn đang ở giai đoạn nào?</h2>
         <p class="mt-3 text-slate-600 text-[15px] sm:text-[17px] leading-relaxed">Chạm vào thẻ đúng với bạn nhất — form bên dưới sẽ tự chọn sẵn dịch vụ phù hợp.</p>
       </div>
@@ -296,8 +278,8 @@
         <article class="pillar-card group relative bg-white border-2 border-primary rounded-[20px] p-6 sm:p-7 shadow-card hover:-translate-y-1.5 transition cursor-pointer" data-service="tang-toc">
           <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent text-white text-[12px] font-bold px-3.5 py-1.5 rounded-full shadow-cta whitespace-nowrap">★ ĐƯỢC CHỌN NHIỀU NHẤT</span>
           <div class="flex items-start justify-between">
-            <span class="w-12 h-12 rounded-2xl bg-primary text-white grid place-items-center text-xl"><i class="fa-solid fa-rocket"></i></span>
-            <span class="text-[11px] font-bold tracking-widest bg-[#EEF0F7] text-primary px-2.5 py-1 rounded-full">GIAI ĐOẠN 02</span>
+            <span class="w-12 h-12 rounded-2xl bg-blue-600 text-white grid place-items-center text-xl"><i class="fa-solid fa-rocket"></i></span>
+            <span class="text-[11px] font-bold tracking-widest bg-blue-50 text-primary px-2.5 py-1 rounded-full">GIAI ĐOẠN 02</span>
           </div>
           <h3 class="mt-5 text-[19px] font-black tracking-tight">LAL TĂNG TỐC</h3>
           <p class="mt-1.5 text-slate-600 italic">“Tôi vừa thành lập, cần có khách ngay.”</p>
@@ -307,7 +289,7 @@
             <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Quảng cáo</strong> — Facebook / Google ra khách thật</span></li>
           </ul>
           <p class="mt-5 pt-4 border-t border-dashed border-slate-200 text-[13px] text-slate-500">Phù hợp: <strong class="text-slate-800">Đã có GPKD, cần doanh thu</strong></p>
-          <button type="button" class="mt-4 w-full py-3 rounded-xl bg-primary text-white font-bold text-[15px] group-hover:bg-[#171C36] transition">Chọn gói Tăng Tốc →</button>
+          <button type="button" class="mt-4 w-full py-3 rounded-xl bg-primary text-white font-bold text-[15px] group-hover:bg-blue-700 transition">Chọn gói Tăng Tốc →</button>
         </article>
 
         <!-- CARD 3: CẢI TỔ -->
@@ -342,7 +324,7 @@
 
         <div class="mt-9 grid sm:grid-cols-3 gap-5">
           <div class="bg-white rounded-[20px] p-6 border border-slate-100 shadow-sm text-center sm:text-left">
-            <span class="inline-grid place-items-center w-12 h-12 rounded-2xl bg-primary text-white text-xl"><i class="fa-solid fa-bolt"></i></span>
+            <span class="inline-grid place-items-center w-12 h-12 rounded-2xl bg-blue-600 text-white text-xl"><i class="fa-solid fa-bolt"></i></span>
             <h3 class="mt-4 font-bold text-[17px]">Nhanh chóng</h3>
             <p class="mt-1.5 text-slate-600 text-[14.5px] leading-relaxed"><strong class="text-slate-900">Xong trong 7 ngày.</strong> Có lộ trình từng ngày, không ngâm hồ sơ, không chờ đợi.</p>
           </div>
@@ -377,269 +359,7 @@
     </section>
 
     <!-- ============================================================
-      4B. CHI TIẾT TỪNG GÓI - Khách đọc là biết mình nhận được gì
-      [THAY Ở ĐÂY] Giá bên dưới đang để giá tham khảo. Sửa lại theo bảng giá thật của bạn.
-    ============================================================ -->
-    <section id="chi-tiet-goi" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 scroll-mt-24">
-      <div class="text-center max-w-2xl mx-auto">
-        <span class="inline-block bg-amber-50 text-amber-600 font-bold text-[12px] tracking-widest uppercase px-3 py-1.5 rounded-full">Không chung chung — Có deliverable rõ ràng</span>
-        <h2 class="mt-4 text-[28px] sm:text-[36px] font-black tracking-tight">Chi tiết từng gói — Bạn sẽ nhận được gì?</h2>
-        <p class="mt-3 text-slate-600 text-[15px] sm:text-[17px] leading-relaxed">Mỗi gói đều có checklist bàn giao. Bạn đối chiếu được, không sợ “làm xong mà không biết làm gì”.</p>
-      </div>
-
-      <!-- GÓI 1 -->
-      <div class="mt-9 bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-sm">
-        <div class="grid md:grid-cols-[1fr_1.4fr]">
-          <div class="bg-amber-50 p-6 sm:p-7">
-            <span class="inline-flex items-center gap-2 bg-white border border-amber-200 text-amber-700 text-[12px] font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-lightbulb"></i> GÓI 01 • KHỞI TẠO</span>
-            <h3 class="mt-4 text-[22px] font-black">Có pháp nhân hợp pháp,<br />sẵn sàng bán hàng</h3>
-            <p class="mt-2 text-slate-600 text-[14.5px] leading-relaxed">Dành cho bạn có ý tưởng nhưng chưa có giấy phép. LAL lo hết giấy tờ, bạn chỉ cần cung cấp CCCD.</p>
-            <div class="mt-5 flex flex-wrap gap-2 text-[12px] font-bold">
-              <span class="bg-white border border-slate-200 px-2.5 py-1.5 rounded-full">⏱ 3–5 ngày</span>
-              <span class="bg-white border border-slate-200 px-2.5 py-1.5 rounded-full">💰 Từ 2,9tr* <span class="font-normal text-slate-400">[THAY GIÁ]</span></span>
-              <span class="bg-white border border-slate-200 px-2.5 py-1.5 rounded-full">🛡 Bảo hành hồ sơ</span>
-            </div>
-            <a href="#dang-ky" class="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-slate-900 text-white font-bold text-[15px] px-5 py-3 rounded-xl">Nhận báo giá Khởi Tạo →</a>
-            <p class="mt-3 text-[12px] text-slate-400">* Giá tham khảo, báo giá chính xác sau khi tư vấn loại hình.</p>
-          </div>
-          <div class="p-6 sm:p-7">
-            <p class="font-bold text-[15px]">Checklist bàn giao — 8 hạng mục:</p>
-            <ul class="mt-4 grid sm:grid-cols-2 gap-x-5 gap-y-3 text-[14.5px]">
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Tư vấn loại hình</strong> — Công ty vs Hộ kinh doanh, cái nào lợi thuế hơn cho bạn</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Giấy phép kinh doanh (GPKD)</strong> — Nộp & nhận kết quả, bạn không cần đi lại</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Con dấu + Biển hiệu</strong> — Đúng chuẩn, treo là xong</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Chữ ký số 1 năm</strong> — Ký hợp đồng, hóa đơn điện tử</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Khai thuế ban đầu</strong> — Đăng ký thuế, tài khoản ngân hàng</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Kế toán tháng đầu</strong> — Báo cáo, nhắc hạn nộp thuế</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Hóa đơn điện tử</strong> — Cài đặt & hướng dẫn xuất hóa đơn</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>File hồ sơ đầy đủ</strong> — Bản cứng + bản mềm, lưu trữ trọn đời</span></li>
-            </ul>
-            <p class="mt-5 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[13.5px] text-slate-600"><strong class="text-slate-900">Bạn cần chuẩn bị:</strong> CCCD, 3 tên công ty dự kiến, địa chỉ trụ sở, ngành nghề dự kiến. Hết. Phần còn lại LAL lo.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- GÓI 2 -->
-      <div class="mt-5 bg-white border-2 border-primary rounded-[24px] overflow-hidden shadow-card">
-        <div class="grid md:grid-cols-[1fr_1.4fr]">
-          <div class="bg-primary text-white p-6 sm:p-7">
-            <span class="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-[12px] font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-rocket"></i> GÓI 02 • TĂNG TỐC ★ BÁN CHẠY NHẤT</span>
-            <h3 class="mt-4 text-[22px] font-black">Có khách ngay,<br />không chờ “hữu xạ tự nhiên hương”</h3>
-            <p class="mt-2 text-[#DDE0EE] text-[14.5px] leading-relaxed">Dành cho bạn đã có GPKD nhưng chưa có kênh bán hàng. LAL dựng cỗ máy + chạy Ads ra lead đầu tiên trong 7 ngày.</p>
-            <div class="mt-5 flex flex-wrap gap-2 text-[12px] font-bold">
-              <span class="bg-white text-slate-900 px-2.5 py-1.5 rounded-full">⏱ 5–7 ngày</span>
-              <span class="bg-white text-slate-900 px-2.5 py-1.5 rounded-full">💰 Từ 7,9tr* <span class="font-normal text-slate-500">[THAY GIÁ]</span></span>
-              <span class="bg-accent text-white px-2.5 py-1.5 rounded-full">🎯 Có lead đầu tiên</span>
-            </div>
-            <a href="#dang-ky" class="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-accent text-white font-bold text-[15px] px-5 py-3 rounded-xl shadow-cta">Nhận báo giá Tăng Tốc →</a>
-            <p class="mt-3 text-[12px] text-slate-300">* Chưa bao gồm ngân sách chạy Ads (bạn tự nạp, LAL không giữ tiền Ads).</p>
-          </div>
-          <div class="p-6 sm:p-7">
-            <p class="font-bold text-[15px]">Checklist bàn giao — 8 hạng mục:</p>
-            <ul class="mt-4 grid sm:grid-cols-2 gap-x-5 gap-y-3 text-[14.5px]">
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Website chuẩn thương hiệu</strong> — 5–7 trang, tốc độ nhanh, chuẩn SEO</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Landing Page thu Lead</strong> — Như trang bạn đang đọc, tối ưu cho Ads</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Fanpage + Zalo OA</strong> — Setup, ảnh bìa, nút nhắn tin</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Cài đặt Pixel / GA4</strong> — Đo được mỗi đồng Ads ra bao nhiêu lead</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Content 7 bài đầu</strong> — Bài giới thiệu, bài bán hàng, kịch bản video ngắn</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Chạy Ads thử nghiệm 7 ngày</strong> — Facebook / Google, tối ưu theo lead thật</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Form + Bot nhắn tin</strong> — Khách để lại SĐT là bạn nhận ngay qua Zalo</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-primary mt-1"></i><span><strong>Video hướng dẫn</strong> — Tự đăng bài, tự xem báo cáo, không phụ thuộc LAL</span></li>
-            </ul>
-            <p class="mt-5 bg-[#EEF0F7] border border-[#E6E8F0] rounded-xl px-4 py-3 text-[13.5px] text-slate-600"><strong class="text-slate-900">Kết quả kỳ vọng sau 7 ngày:</strong> Có website + landing page chạy được, có lead đầu tiên, biết chi phí / 1 lead để tính tiếp ngân sách.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- GÓI 3 -->
-      <div class="mt-5 bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-sm">
-        <div class="grid md:grid-cols-[1fr_1.4fr]">
-          <div class="bg-emerald-50 p-6 sm:p-7">
-            <span class="inline-flex items-center gap-2 bg-white border border-emerald-200 text-emerald-700 text-[12px] font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-gears"></i> GÓI 03 • CẢI TỔ</span>
-            <h3 class="mt-4 text-[22px] font-black">Hết quá tải,<br />hệ thống chạy thay bạn</h3>
-            <p class="mt-2 text-slate-600 text-[14.5px] leading-relaxed">Dành cho bạn đang bán được nhưng làm tay quá nhiều: trả lời khách, báo giá, nhắc nợ, chăm sóc lại.</p>
-            <div class="mt-5 flex flex-wrap gap-2 text-[12px] font-bold">
-              <span class="bg-white border border-slate-200 px-2.5 py-1.5 rounded-full">⏱ 5–7 ngày</span>
-              <span class="bg-white border border-slate-200 px-2.5 py-1.5 rounded-full">💰 Báo giá theo quy trình</span>
-              <span class="bg-white border border-slate-200 px-2.5 py-1.5 rounded-full">🛡 Bảo hành 30 ngày</span>
-            </div>
-            <a href="#dang-ky" class="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-slate-900 text-white font-bold text-[15px] px-5 py-3 rounded-xl">Nhận tư vấn Cải Tổ →</a>
-          </div>
-          <div class="p-6 sm:p-7">
-            <p class="font-bold text-[15px]">Checklist bàn giao — 7 hạng mục:</p>
-            <ul class="mt-4 grid sm:grid-cols-2 gap-x-5 gap-y-3 text-[14.5px]">
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Audit quy trình hiện tại</strong> — Tìm chỗ đang rò rỉ đơn, tốn thời gian</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Bot Zalo chăm sóc KH</strong> — Trả lời 24/7, phân loại khách nóng / lạnh</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Tự động hóa báo giá</strong> — Khách hỏi là có giá + file báo giá ngay</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>CRM mini / Google Sheet tự động</strong> — Mọi lead về 1 chỗ, không sót đơn</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Nhắc lịch + chăm sóc lại</strong> — Nhắc hẹn, nhắc nợ, nhắn chúc mừng sinh nhật</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Quy trình bán hàng chuẩn</strong> — Kịch bản chốt đơn cho nhân viên mới</span></li>
-              <li class="flex gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i><span><strong>Đào tạo team 1 buổi</strong> — Cầm tay chỉ việc, có video ghi lại</span></li>
-            </ul>
-            <p class="mt-5 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[13.5px] text-slate-600"><strong class="text-slate-900">Mục tiêu:</strong> Giảm 50–70% thời gian trả lời / báo giá thủ công. Bạn rảnh tay để lo chiến lược.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-      4C. SO SÁNH - Giúp khách tự thuyết phục mình
-    ============================================================ -->
-    <section id="so-sanh" class="bg-slate-50 border-y border-slate-100 scroll-mt-24">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div class="text-center max-w-2xl mx-auto">
-          <h2 class="text-[28px] sm:text-[36px] font-black tracking-tight">So sánh thẳng: LAL vs Tự làm vs Thuê lẻ</h2>
-          <p class="mt-3 text-slate-600 text-[15px] sm:text-[17px]">Không phải LAL rẻ nhất. LAL là cách ít rủi ro và ít tốn thời gian nhất.</p>
-        </div>
-        <div class="table-wrap mt-8 overflow-x-auto bg-white rounded-[20px] border border-slate-200 shadow-sm">
-          <table class="w-full min-w-[640px] text-[14px] text-left">
-            <thead>
-              <tr class="border-b border-slate-100">
-                <th class="p-4 font-bold text-slate-500">Tiêu chí</th>
-                <th class="p-4 bg-primary text-white font-black">LAL.VN ⭐<br /><span class="font-medium text-[#DDE0EE] text-[12px]">Trọn gói 1 đầu mối</span></th>
-                <th class="p-4 font-bold">Tự làm</th>
-                <th class="p-4 font-bold">Thuê lẻ từng bên</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100">
-              <tr><td class="p-4 font-semibold">Thời gian ra hệ thống</td><td class="p-4 bg-[#EEF0F7] font-bold text-primary">7 ngày, có lộ trình từng ngày</td><td class="p-4 text-slate-600">1–3 tháng, vừa làm vừa mò</td><td class="p-4 text-slate-600">2–6 tuần, chờ từng bên</td></tr>
-              <tr><td class="p-4 font-semibold">Người chịu trách nhiệm</td><td class="p-4 bg-[#EEF0F7] font-bold text-primary">1 đầu mối — LAL chịu</td><td class="p-4 text-slate-600">Chính bạn chịu hết</td><td class="p-4 text-slate-600">Đổ lỗi qua lại</td></tr>
-              <tr><td class="p-4 font-semibold">Pháp lý & thuế</td><td class="p-4 bg-[#EEF0F7] font-bold text-primary">Luật sư + Kế toán lo</td><td class="p-4 text-slate-600">Dễ sai, bị phạt mới biết</td><td class="p-4 text-slate-600">Thường không bao gồm</td></tr>
-              <tr><td class="p-4 font-semibold">Đo lường Ads</td><td class="p-4 bg-[#EEF0F7] font-bold text-primary">Biết chi phí / 1 lead</td><td class="p-4 text-slate-600">Chạy theo cảm tính</td><td class="p-4 text-slate-600">Mỗi bên báo cáo 1 kiểu</td></tr>
-              <tr><td class="p-4 font-semibold">Tự động hóa</td><td class="p-4 bg-[#EEF0F7] font-bold text-primary">Bot + báo giá tự động</td><td class="p-4 text-slate-600">Làm tay 100%</td><td class="p-4 text-slate-600">Phải thuê thêm bên nữa</td></tr>
-              <tr><td class="p-4 font-semibold">Chi phí ẩn</td><td class="p-4 bg-[#EEF0F7] font-bold text-primary">Báo giá 1 lần, không phát sinh</td><td class="p-4 text-slate-600">Tưởng rẻ, tính ra đắt</td><td class="p-4 text-slate-600">Phát sinh liên tục</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-center text-[13px] text-slate-400 mt-4">Bảng so sánh mang tính tham khảo theo trải nghiệm triển khai thực tế của LAL. Bạn có thể sửa số liệu cho khớp với case của mình.</p>
-
-        <!-- Cam kết -->
-        <div class="mt-8 grid sm:grid-cols-3 gap-4">
-          <div class="bg-white border border-slate-200 rounded-2xl p-5 flex gap-3.5"><span class="w-11 h-11 shrink-0 rounded-xl bg-[#E6E8F0] text-primary grid place-items-center text-lg"><i class="fa-solid fa-calendar-check"></i></span><div><h3 class="font-bold text-[15px]">Cam kết đúng hẹn 7 ngày</h3><p class="text-slate-600 text-[13.5px] mt-1 leading-relaxed">Trễ hẹn do LAL, giảm phí theo thỏa thuận trong hợp đồng.</p></div></div>
-          <div class="bg-white border border-slate-200 rounded-2xl p-5 flex gap-3.5"><span class="w-11 h-11 shrink-0 rounded-xl bg-emerald-100 text-emerald-600 grid place-items-center text-lg"><i class="fa-solid fa-shield-halved"></i></span><div><h3 class="font-bold text-[15px]">Cam kết đúng luật</h3><p class="text-slate-600 text-[13.5px] mt-1 leading-relaxed">Hồ sơ sai do LAL, LAL làm lại / chịu trách nhiệm theo hợp đồng.</p></div></div>
-          <div class="bg-white border border-slate-200 rounded-2xl p-5 flex gap-3.5"><span class="w-11 h-11 shrink-0 rounded-xl bg-amber-100 text-amber-600 grid place-items-center text-lg"><i class="fa-solid fa-receipt"></i></span><div><h3 class="font-bold text-[15px]">Cam kết không chi phí ẩn</h3><p class="text-slate-600 text-[13.5px] mt-1 leading-relaxed">Báo giá 1 lần trước khi làm. Phát sinh phải có xác nhận của bạn.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-      4D. KHÁCH HÀNG + AI NÊN / KHÔNG NÊN
-    ============================================================ -->
-    <section id="khach-hang" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 scroll-mt-24">
-      <div class="text-center max-w-2xl mx-auto">
-        <span class="inline-block bg-[#EEF0F7] text-primary font-bold text-[12px] tracking-widest uppercase px-3 py-1.5 rounded-full">Kết quả thật — [THAY BẰNG CASE THẬT CỦA BẠN]</span>
-        <h2 class="mt-4 text-[28px] sm:text-[36px] font-black tracking-tight">Khách hàng đã làm được gì với LAL?</h2>
-        <p class="mt-3 text-slate-600 text-[15px] sm:text-[17px]">3 câu chuyện dưới đây đang để số liệu mẫu — bạn thay bằng 3 khách thật của mình là trang sẽ thuyết phục gấp nhiều lần.</p>
-      </div>
-      <div class="mt-8 grid md:grid-cols-3 gap-5">
-        <figure class="bg-white border border-slate-200 rounded-[20px] p-6 shadow-sm flex flex-col">
-          <div class="text-amber-400 text-sm">★★★★★</div>
-          <blockquote class="mt-3 text-[15px] leading-relaxed text-slate-700 flex-1">“Mình không biết gì về giấy tờ. LAL lo hết, 4 ngày có GPKD, ngày thứ 7 đã có lead đầu tiên từ Landing Page. Đỡ stress hẳn.”</blockquote>
-          <div class="mt-5 pt-4 border-t border-dashed border-slate-200 flex items-center gap-3">
-            <span class="w-11 h-11 rounded-full bg-primary text-white grid place-items-center font-bold text-[13px]">MA</span>
-            <div><p class="font-bold text-[14px]">Chị Mai Anh — Shop mỹ phẩm, Cần Thơ</p><p class="text-[12px] text-slate-500">Gói: Khởi Tạo + Tăng Tốc</p></div>
-          </div>
-          <div class="mt-4 grid grid-cols-2 gap-2 text-center">
-            <div class="bg-[#EEF0F7] rounded-xl py-2.5"><p class="font-black text-primary">7 ngày</p><p class="text-[11px] text-slate-500">Có GPKD + Website</p></div>
-            <div class="bg-[#EEF0F7] rounded-xl py-2.5"><p class="font-black text-primary">47 lead</p><p class="text-[11px] text-slate-500">Trong tuần Ads đầu</p></div>
-          </div>
-        </figure>
-        <figure class="bg-white border-2 border-primary rounded-[20px] p-6 shadow-card flex flex-col">
-          <div class="text-amber-400 text-sm">★★★★★</div>
-          <blockquote class="mt-3 text-[15px] leading-relaxed text-slate-700 flex-1">“Trước đây báo giá tay, khách hỏi 10 người trả lời được 3. Giờ Bot Zalo trả lời ngay, mình chỉ việc chốt. Doanh thu không tăng vọt nhưng đỡ mất khách hẳn.”</blockquote>
-          <div class="mt-5 pt-4 border-t border-dashed border-slate-200 flex items-center gap-3">
-            <span class="w-11 h-11 rounded-full bg-emerald-500 text-white grid place-items-center font-bold text-[13px]">TT</span>
-            <div><p class="font-bold text-[14px]">Anh Tuấn — Dịch vụ sửa chữa, TP.HCM</p><p class="text-[12px] text-slate-500">Gói: Cải Tổ</p></div>
-          </div>
-          <div class="mt-4 grid grid-cols-2 gap-2 text-center">
-            <div class="bg-emerald-50 rounded-xl py-2.5"><p class="font-black text-emerald-600">-70%</p><p class="text-[11px] text-slate-500">Thời gian báo giá</p></div>
-            <div class="bg-emerald-50 rounded-xl py-2.5"><p class="font-black text-emerald-600">24/7</p><p class="text-[11px] text-slate-500">Bot trả lời khách</p></div>
-          </div>
-        </figure>
-        <figure class="bg-white border border-slate-200 rounded-[20px] p-6 shadow-sm flex flex-col">
-          <div class="text-amber-400 text-sm">★★★★★</div>
-          <blockquote class="mt-3 text-[15px] leading-relaxed text-slate-700 flex-1">“Mình sợ nhất là thuế. Bên LAL có kế toán nhắc hạn, giải thích dễ hiểu. Giờ mình chỉ tập trung bán hàng, không lo bị phạt nữa.”</blockquote>
-          <div class="mt-5 pt-4 border-t border-dashed border-slate-200 flex items-center gap-3">
-            <span class="w-11 h-11 rounded-full bg-amber-500 text-white grid place-items-center font-bold text-[13px]">PQ</span>
-            <div><p class="font-bold text-[14px]">Chị Phương Quỳnh — Thời trang, Hà Nội</p><p class="text-[12px] text-slate-500">Gói: Khởi Tạo</p></div>
-          </div>
-          <div class="mt-4 grid grid-cols-2 gap-2 text-center">
-            <div class="bg-amber-50 rounded-xl py-2.5"><p class="font-black text-amber-600">0 lần</p><p class="text-[11px] text-slate-500">Trễ hạn thuế</p></div>
-            <div class="bg-amber-50 rounded-xl py-2.5"><p class="font-black text-amber-600">100%</p><p class="text-[11px] text-slate-500">Hồ sơ đúng luật</p></div>
-          </div>
-        </figure>
-      </div>
-
-      <!-- Ai nên / không nên -->
-      <div class="mt-8 grid md:grid-cols-2 gap-5">
-        <div class="bg-emerald-50 border border-emerald-100 rounded-[20px] p-6">
-          <h3 class="font-black text-[17px] text-emerald-800">✅ LAL phù hợp nếu bạn…</h3>
-          <ul class="mt-4 space-y-2.5 text-[14.5px] text-slate-700">
-            <li class="flex gap-2.5"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Muốn làm đúng luật ngay từ đầu, không muốn sửa sai sau</li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Muốn có khách trong 7–14 ngày, không chờ 3–6 tháng</li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Không rành kỹ thuật, muốn có người lo phần đó</li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Sẵn sàng đầu tư bài bản để làm lâu dài</li>
-          </ul>
-        </div>
-        <div class="bg-slate-50 border border-slate-200 rounded-[20px] p-6">
-          <h3 class="font-black text-[17px] text-slate-800">⛔ LAL không phù hợp nếu bạn…</h3>
-          <ul class="mt-4 space-y-2.5 text-[14.5px] text-slate-600">
-            <li class="flex gap-2.5"><i class="fa-solid fa-xmark text-slate-400 mt-1"></i> Chỉ muốn làm cho có, không cần đúng luật</li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-xmark text-slate-400 mt-1"></i> Muốn giàu sau 1 đêm, không muốn đầu tư Ads / content</li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-xmark text-slate-400 mt-1"></i> Không muốn cung cấp thông tin để làm hồ sơ</li>
-          </ul>
-          <p class="mt-4 text-[13px] text-slate-500">Nói thẳng như vậy để bạn không mất thời gian — và LAL cũng không nhận case không phù hợp.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-      4E. HỎI ĐÁP THƯỜNG GẶP - FAQ (giải quyết objection trước khi điền form)
-    ============================================================ -->
-    <section id="faq" class="bg-slate-50 border-y border-slate-100 scroll-mt-24">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div class="text-center">
-          <h2 class="text-[28px] sm:text-[36px] font-black tracking-tight">Hỏi đáp thường gặp</h2>
-          <p class="mt-3 text-slate-600 text-[15px] sm:text-[17px]">Bấm vào câu hỏi để xem câu trả lời. Chưa thấy câu hỏi của bạn? Điền form — LAL trả lời 1-1.</p>
-        </div>
-        <div class="mt-8 space-y-3">
-          <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-            <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 text-left p-5 font-bold text-[15.5px]">1. Làm GPKD mất bao lâu? Tôi cần chuẩn bị gì?<span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-[#EEF0F7] text-primary grid place-items-center"><i class="fa-solid fa-plus text-xs"></i></span></button>
-            <div class="faq-content px-5 pb-5 text-[14.5px] leading-relaxed text-slate-600">Thường <strong class="text-slate-900">3–5 ngày làm việc</strong> nếu hồ sơ đủ. Bạn chỉ cần CCCD, 3 tên công ty dự kiến, địa chỉ trụ sở và ngành nghề dự kiến. LAL soạn hồ sơ, nộp và nhận kết quả giúp bạn — bạn không cần tự đi lại.</div>
-          </div>
-          <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-            <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 text-left p-5 font-bold text-[15.5px]">2. Tôi đã có công ty rồi, có dùng được LAL không?<span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-[#EEF0F7] text-primary grid place-items-center"><i class="fa-solid fa-plus text-xs"></i></span></button>
-            <div class="faq-content px-5 pb-5 text-[14.5px] leading-relaxed text-slate-600">Được. Bạn bỏ qua gói Khởi Tạo và đi thẳng vào <strong class="text-slate-900">Tăng Tốc hoặc Cải Tổ</strong>. LAL sẽ kiểm tra nhanh hồ sơ hiện tại của bạn (miễn phí) rồi mới đề xuất lộ trình.</div>
-          </div>
-          <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-            <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 text-left p-5 font-bold text-[15.5px]">3. Tôi không biết gì về kỹ thuật, có làm được không?<span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-[#EEF0F7] text-primary grid place-items-center"><i class="fa-solid fa-plus text-xs"></i></span></button>
-            <div class="faq-content px-5 pb-5 text-[14.5px] leading-relaxed text-slate-600">Đó chính là lý do LAL tồn tại. Bạn <strong class="text-slate-900">không cần biết code, không cần biết chạy Ads</strong>. LAL dựng xong, quay video hướng dẫn và cầm tay chỉ việc 1 buổi. Sau đó bạn chỉ cần đăng bài và trả lời khách.</div>
-          </div>
-          <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-            <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 text-left p-5 font-bold text-[15.5px]">4. Tổng chi phí là bao nhiêu? Có phát sinh không?<span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-[#EEF0F7] text-primary grid place-items-center"><i class="fa-solid fa-plus text-xs"></i></span></button>
-            <div class="faq-content px-5 pb-5 text-[14.5px] leading-relaxed text-slate-600">LAL <strong class="text-slate-900">báo giá 1 lần trước khi làm</strong>, chia rõ: phí dịch vụ LAL + phí nhà nước + ngân sách Ads (nếu có). Phát sinh chỉ khi bạn yêu cầu thêm hạng mục ngoài hợp đồng và có xác nhận của bạn trước. Không có chi phí ẩn.</div>
-          </div>
-          <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-            <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 text-left p-5 font-bold text-[15.5px]">5. Sau 7 ngày, LAL có bỏ mặc tôi không?<span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-[#EEF0F7] text-primary grid place-items-center"><i class="fa-solid fa-plus text-xs"></i></span></button>
-            <div class="faq-content px-5 pb-5 text-[14.5px] leading-relaxed text-slate-600">Không. Bạn được <strong class="text-slate-900">bảo hành 30 ngày</strong> cho phần tự động hóa / website, và được hỗ trợ qua Zalo trong giờ làm việc. Nếu cần, bạn có thể đăng ký gói vận hành hàng tháng — LAL báo giá riêng, không bắt buộc.</div>
-          </div>
-          <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-            <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 text-left p-5 font-bold text-[15.5px]">6. Tôi ở tỉnh khác, không ở Cần Thơ / TP.HCM thì sao?<span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-[#EEF0F7] text-primary grid place-items-center"><i class="fa-solid fa-plus text-xs"></i></span></button>
-            <div class="faq-content px-5 pb-5 text-[14.5px] leading-relaxed text-slate-600">Làm được toàn quốc. Hồ sơ pháp lý và website / Ads đều làm <strong class="text-slate-900">online qua Zalo / Google Meet</strong>. Bạn chỉ cần gửi CCCD và ký hồ sơ theo hướng dẫn của LAL.</div>
-          </div>
-          <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-            <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 text-left p-5 font-bold text-[15.5px]">7. Nếu tôi điền form, LAL có gọi làm phiền không?<span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-[#EEF0F7] text-primary grid place-items-center"><i class="fa-solid fa-plus text-xs"></i></span></button>
-            <div class="faq-content px-5 pb-5 text-[14.5px] leading-relaxed text-slate-600">Không. LAL chỉ gọi <strong class="text-slate-900">1 lần trong 15 phút</strong> để tư vấn theo form bạn điền. Nếu bạn chưa sẵn sàng, cứ nói thẳng — LAL gửi lộ trình qua Zalo để bạn xem sau, không gọi lại liên tục.</div>
-          </div>
-        </div>
-        <div class="mt-7 text-center">
-          <a href="#dang-ky" class="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3.5 rounded-full shadow-card">Hỏi LAL 1-1 miễn phí →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-      6. THU LEAD - FORM ĐĂNG KÝ (QUAN TRỌNG NHẤT)
+      5. THU LEAD - FORM ĐĂNG KÝ (QUAN TRỌNG NHẤT)
     ============================================================ -->
     <section id="dang-ky" class="bg-primary relative overflow-hidden scroll-mt-24">
       <div class="absolute inset-0 bg-dots"></div>
@@ -649,7 +369,7 @@
         <div class="text-white text-center lg:text-left">
           <span class="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-[12px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full"><i class="fa-solid fa-clock"></i> Gọi lại trong 15 phút</span>
           <h2 class="mt-5 text-[30px] sm:text-[38px] leading-[1.15] font-black tracking-tight">Để lại thông tin,<br />chuyên gia LAL sẽ gọi lại<br class="hidden sm:block" /> trong <span class="text-accent">15 phút!</span></h2>
-          <p class="mt-4 text-[#DDE0EE] text-[15.5px] sm:text-[17px] leading-relaxed max-w-lg mx-auto lg:mx-0">Điền form — LAL sẽ gọi để chẩn đoán giai đoạn của bạn và gửi lộ trình 1-1 chi tiết. Không mất phí, không ràng buộc.</p>
+          <p class="mt-4 text-blue-100 text-[15.5px] sm:text-[17px] leading-relaxed max-w-lg mx-auto lg:mx-0">Điền form — LAL sẽ gọi để chẩn đoán giai đoạn của bạn và gửi lộ trình 1-1 chi tiết. Không mất phí, không ràng buộc.</p>
           <ul class="mt-6 space-y-3 text-left max-w-md mx-auto lg:mx-0 text-[15px]">
             <li class="flex gap-3"><span class="w-6 h-6 shrink-0 rounded-full bg-white text-primary grid place-items-center text-[11px]"><i class="fa-solid fa-check"></i></span> Nhận <strong class="ml-0.5">bản đồ lộ trình 7 ngày</strong> riêng cho mô hình của bạn</li>
             <li class="flex gap-3"><span class="w-6 h-6 shrink-0 rounded-full bg-white text-primary grid place-items-center text-[11px]"><i class="fa-solid fa-check"></i></span> Biết <strong class="ml-0.5">chi phí trọn gói</strong> trước khi quyết — không phát sinh</li>
@@ -657,7 +377,7 @@
           </ul>
           <div class="mt-7 hidden lg:flex items-center gap-3">
             <img src="data:image/jpeg;base64,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" alt="" class="w-11 h-11 rounded-full object-cover bg-white p-1" />
-            <div class="text-left"><p class="font-bold text-[15px]">Đội ngũ LAL.VN</p><p class="text-slate-300 text-[13px]">Đã đồng hành cùng 50+ Startup tại Việt Nam</p></div>
+            <div class="text-left"><p class="font-bold text-[15px]">Đội ngũ LAL.VN</p><p class="text-blue-200 text-[13px]">Đã đồng hành cùng 50+ Startup tại Việt Nam</p></div>
           </div>
         </div>
 
@@ -668,7 +388,6 @@
             <span class="shrink-0 bg-emerald-50 text-emerald-600 text-[12px] font-bold px-2.5 py-1 rounded-full"><span class="inline-block w-2 h-2 bg-emerald-500 rounded-full mr-1 animate-pulse"></span>Đang mở</span>
           </div>
           <p class="text-slate-500 text-[13.5px] mt-1.5">Điền đủ 3 ô — chỉ mất 20 giây.</p>
-          <p class="mt-2 text-[12px] text-slate-400">Tiếp nhận bởi <strong class="text-slate-600">CÔNG TY TNHH LAL SOLUTION</strong> • MST: 0402190230 • Hotline: 0977.43.11.43</p>
 
           <form id="leadForm" class="mt-5 space-y-4" novalidate>
             <!-- Input 1: Họ và Tên -->
@@ -716,7 +435,7 @@
             <p class="flex items-start gap-2 text-[12.5px] text-slate-400 leading-relaxed"><i class="fa-solid fa-lock mt-0.5"></i> Thông tin của bạn được bảo mật tuyệt đối, chỉ dùng để chuyên gia LAL liên hệ tư vấn. Không spam, không bán data.</p>
             <div class="pt-1 border-t border-dashed border-slate-200 flex items-center justify-between gap-3 pt-4">
               <span class="text-[13px] text-slate-500">Muốn nhanh hơn?</span>
-              <a href="https://zalo.me/0977431143" target="_blank" rel="noopener" class="font-bold text-[14px] text-[#0068FF]">Chat Zalo ngay →</a>
+              <a href="https://zalo.me/0900000000" target="_blank" rel="noopener" class="font-bold text-[14px] text-[#0068FF]">Chat Zalo ngay →</a>
             </div>
           </form>
 
@@ -730,21 +449,21 @@
   </main>
 
   <!-- ============================================================
-    7. FOOTER
+    6. FOOTER
   ============================================================ -->
   <footer class="bg-secondary text-slate-300">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12 grid gap-8 md:grid-cols-[1.3fr_1fr_1fr]">
       <div>
         <a href="#top" class="flex items-center gap-2.5">
           <img src="data:image/jpeg;base64,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" alt="Logo LAL.VN" class="w-10 h-10 object-contain bg-white rounded-lg" />
-          <span class="leading-none"><span class="block text-[24px] font-black text-white tracking-tight">LAL<span class="text-[#9AA0C0]">.VN</span></span><span class="block text-[11px] font-semibold tracking-[0.14em] text-slate-400 uppercase mt-0.5">Hệ sinh thái Startup</span></span>
+          <span class="leading-none"><span class="block text-[24px] font-black text-white tracking-tight">LAL<span class="text-blue-400">.VN</span></span><span class="block text-[11px] font-semibold tracking-[0.14em] text-slate-400 uppercase mt-0.5">Hệ sinh thái Startup</span></span>
         </a>
-        <p class="mt-4 text-[14px] leading-relaxed text-slate-400 max-w-sm">CÔNG TY TNHH LAL SOLUTION — Hệ sinh thái trọn gói giúp Startup khởi tạo, vận hành và bứt phá doanh thu — từ pháp lý đến cỗ máy bán hàng, tất cả trong 7 ngày.</p>
+        <p class="mt-4 text-[14px] leading-relaxed text-slate-400 max-w-sm">Hệ sinh thái trọn gói giúp Startup khởi tạo, vận hành và bứt phá doanh thu — từ pháp lý đến cỗ máy bán hàng, tất cả trong 7 ngày.</p>
         <div class="mt-4 flex gap-2">
-          <a href="https://zalo.me/0977431143" target="_blank" rel="noopener" aria-label="Chat Zalo" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#0068FF] grid place-items-center transition"><span class="font-black text-[13px]">Z</span></a>
+          <a href="https://zalo.me/0900000000" target="_blank" rel="noopener" aria-label="Chat Zalo" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#0068FF] grid place-items-center transition"><span class="font-black text-[13px]">Z</span></a>
           <a href="#" aria-label="Facebook LAL.VN" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary grid place-items-center transition"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="#" aria-label="TikTok LAL.VN" class="w-10 h-10 rounded-full bg-white/10 hover:bg-black grid place-items-center transition"><i class="fa-brands fa-tiktok"></i></span></a>
-          <a href="tel:0977431143" aria-label="Gọi LAL.VN" class="w-10 h-10 rounded-full bg-white/10 hover:bg-emerald-500 grid place-items-center transition"><i class="fa-solid fa-phone"></i></a>
+          <a href="tel:0900000000" aria-label="Gọi LAL.VN" class="w-10 h-10 rounded-full bg-white/10 hover:bg-emerald-500 grid place-items-center transition"><i class="fa-solid fa-phone"></i></a>
         </div>
       </div>
       <div>
@@ -759,10 +478,8 @@
       <div>
         <h4 class="text-white font-bold text-[15px]">Liên hệ</h4>
         <ul class="mt-4 space-y-2.5 text-[14px]">
-          <li class="flex gap-2.5"><i class="fa-solid fa-location-dot mt-1 text-slate-400"></i><span>315 Lê Văn Hiến, Phường Hoà Hải, Thành phố Đà Nẵng, Việt Nam</span></li>
-          <li class="flex gap-2.5"><i class="fa-solid fa-phone mt-1 text-slate-400"></i><a href="tel:0977431143" class="hover:text-white">0977.43.11.43</a></li>
-          <li class="flex gap-2.5"><i class="fa-solid fa-id-card mt-1 text-slate-400"></i><span>Mã số thuế: <strong class="text-white">0402190230</strong></span></li>
-          <li class="flex gap-2.5"><i class="fa-solid fa-user-tie mt-1 text-slate-400"></i><span>Đại diện pháp luật: <strong class="text-white">Nguyễn Đình Hùng</strong></span></li>
+          <li class="flex gap-2.5"><i class="fa-solid fa-location-dot mt-1 text-slate-400"></i><span>[THAY Ở ĐÂY] Địa chỉ công ty: Ví dụ: Cần Thơ, Việt Nam</span></li>
+          <li class="flex gap-2.5"><i class="fa-solid fa-phone mt-1 text-slate-400"></i><a href="tel:0900000000" class="hover:text-white">0900 000 000</a></li>
           <li class="flex gap-2.5"><i class="fa-solid fa-envelope mt-1 text-slate-400"></i><a href="mailto:hello@lal.vn" class="hover:text-white">hello@lal.vn</a></li>
           <li class="flex gap-2.5"><i class="fa-solid fa-clock mt-1 text-slate-400"></i><span>8:00 — 21:00, tất cả các ngày</span></li>
         </ul>
@@ -770,8 +487,8 @@
     </div>
     <div class="border-t border-white/10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[13px] text-slate-400">
-        <p>© 2026 CÔNG TY TNHH LAL SOLUTION (LAL.VN) — MST: 0402190230. Mọi quyền được bảo lưu.</p>
-        <p>315 Lê Văn Hiến, P. Hoà Hải (trước đây là P. Ngũ Hành Sơn), TP. Đà Nẵng • Đại diện: Nguyễn Đình Hùng</p>
+        <p>© 2026 LAL.VN — Hệ sinh thái Startup. Mọi quyền được bảo lưu.</p>
+        <p>Trang này được thiết kế để chạy quảng cáo Facebook / Google.</p>
       </div>
     </div>
     <!-- Padding đáy để nút nổi mobile không che footer -->
@@ -779,22 +496,22 @@
   </footer>
 
   <!-- ============================================================
-    8. NÚT GỌI / ZALO NỔI - Cố định (Desktop: góc phải)
+    7. NÚT GỌI / ZALO NỔI - Cố định (Desktop: góc phải)
   ============================================================ -->
   <div class="hidden sm:flex fixed bottom-5 right-5 z-50 flex-col gap-3 items-center">
-    <a href="https://zalo.me/0977431143" target="_blank" rel="noopener" aria-label="Chat Zalo" class="group flex items-center gap-2">
+    <a href="https://zalo.me/0900000000" target="_blank" rel="noopener" aria-label="Chat Zalo" class="group flex items-center gap-2">
       <span class="hidden group-hover:block bg-white shadow-float border border-slate-100 text-[13px] font-semibold px-3 py-1.5 rounded-full">Chat Zalo ngay</span>
       <span class="w-[56px] h-[56px] rounded-full bg-[#0068FF] text-white grid place-items-center text-[20px] font-black shadow-float hover:scale-105 transition">Z</span>
     </a>
-    <a href="tel:0977431143" aria-label="Gọi ngay" class="group relative flex items-center gap-2">
-      <span class="hidden group-hover:block bg-white shadow-float border border-slate-100 text-[13px] font-semibold px-3 py-1.5 rounded-full">Gọi: 0977.43.11.43</span>
+    <a href="tel:0900000000" aria-label="Gọi ngay" class="group relative flex items-center gap-2">
+      <span class="hidden group-hover:block bg-white shadow-float border border-slate-100 text-[13px] font-semibold px-3 py-1.5 rounded-full">Gọi: 0900 000 000</span>
       <span class="call-ring relative w-[56px] h-[56px] rounded-full bg-emerald-500 text-white grid place-items-center text-xl shadow-float hover:scale-105 transition"><i class="fa-solid fa-phone"></i></span>
     </a>
   </div>
 
   <!-- Thanh CTA dính đáy - Mobile (90% traffic Ads từ mobile) -->
   <div class="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-t border-slate-200 px-3 py-2.5 pb-[max(10px,env(safe-area-inset-bottom))] flex gap-2.5">
-    <a href="tel:0977431143" class="flex-1 inline-flex items-center justify-center gap-2 border-2 border-emerald-500 text-emerald-600 font-bold text-[15px] py-3 rounded-xl active:scale-[0.98] transition"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+    <a href="tel:0900000000" class="flex-1 inline-flex items-center justify-center gap-2 border-2 border-emerald-500 text-emerald-600 font-bold text-[15px] py-3 rounded-xl active:scale-[0.98] transition"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
     <a href="#dang-ky" class="flex-[1.4] inline-flex items-center justify-center gap-2 bg-accent text-white font-bold text-[15px] py-3 rounded-xl shadow-cta active:scale-[0.98] transition">Đăng ký Miễn phí <i class="fa-solid fa-arrow-right text-xs"></i></a>
   </div>
 
@@ -804,15 +521,15 @@
   <script>
     /* ================= CONFIG - [THAY Ở ĐÂY] =================
        Thay 2 dòng này bằng số thật của bạn là xong toàn bộ trang:
-       - PHONE_DISPLAY: số hiển thị (vd: 0977.43.11.43)
-       - PHONE_TEL: số để gọi, dạng tel: (vd: 0977431143)
-       - ZALO_LINK: https://zalo.me/0977431143 (đã cập nhật theo số thật)
-       Lưu ý: các link tel: / zalo.me trong HTML cũng đang để 0977431143,
-       hãy Find & Replace toàn bộ "0977431143" bằng số thật của bạn.
+       - PHONE_DISPLAY: số hiển thị (vd: 0909 123 456)
+       - PHONE_TEL: số để gọi, dạng tel: (vd: 0909123456)
+       - ZALO_LINK: link Zalo OA / cá nhân (vd: https://zalo.me/0909123456)
+       Lưu ý: các link tel: / zalo.me trong HTML cũng đang để 0900000000,
+       hãy Find & Replace toàn bộ "0900000000" bằng số thật của bạn.
     ============================================================ */
     const CONFIG = {
-      PHONE_DISPLAY: '0977.43.11.43',
-      ZALO_LINK: 'https://zalo.me/0977431143' // Zalo theo số 0977.43.11.43
+      PHONE_DISPLAY: '0900 000 000',
+      ZALO_LINK: 'https://zalo.me/0900000000' // [THAY Ở ĐÂY] vd: https://zalo.me/0909123456
     };
 
     /* ---------- 1. Menu Mobile ---------- */
@@ -845,16 +562,6 @@
         document.getElementById('dang-ky').scrollIntoView({ behavior: 'smooth' });
         // Focus vào ô tên sau 600ms để user điền ngay
         setTimeout(() => document.getElementById('fullName').focus({ preventScroll: true }), 700);
-      });
-    });
-
-    /* ---------- 3B. FAQ Accordion ---------- */
-    document.querySelectorAll('.faq-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
       });
     });
 

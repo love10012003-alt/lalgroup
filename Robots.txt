@@ -1,0 +1,18 @@
+# robots.txt cho LAL.VN - CÔNG TY TNHH LAL SOLUTION
+# Up file này cùng thư mục với index.html (https://lal.vn/robots.txt)
+# Cho phép Googlebot và tất cả bot quét toàn bộ trang
+
+User-agent: *
+Allow: /
+
+# Chặn bot quét các thư mục không cần thiết (nếu có)
+Disallow: /private/
+Disallow: /admin/
+Disallow: /*?*utm_*
+Disallow: /*?*fbclid*
+
+# Sitemap chính - gửi link này lên Google Search Console
+Sitemap: https://lal.vn/sitemap.xml
+
+# Host chính thức
+Host: https://lal.vn

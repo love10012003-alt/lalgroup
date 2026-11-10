@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sitemap.xml cho LAL.VN - CÔNG TY TNHH LAL SOLUTION -->
+<!-- Up file này cùng thư mục với index.html, rồi gửi link https://lal.vn/sitemap.xml lên Google Search Console -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Trang chủ - Trang duy nhất, chứa toàn bộ dịch vụ -->
+  <url>
+    <loc>https://lal.vn/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lal.vn/logo.jpg</image:loc>
+      <image:title>CÔNG TY TNHH LAL SOLUTION - Thành lập công ty, thiết kế website tại Đà Nẵng</image:title>
+      <image:caption>Logo LAL Solution - Hệ sinh thái Startup tại Đà Nẵng</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lal.vn/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lal.vn/" />
+  </url>
+</urlset>
